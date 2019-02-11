@@ -166,7 +166,7 @@ public class Utils {
     	}
         if (valor instanceof BigDecimal){
         	retorno  = bigDecimalToLog ((BigDecimal)valor);
-        }
+        }   
     	return retorno;
     }
     
@@ -185,6 +185,9 @@ public class Utils {
     	}else
         if (valor instanceof BigDecimal){
         	retorno  = bigDecimalToString ((BigDecimal)valor);
+    	}else
+        if (valor instanceof Integer){
+        	retorno  = integerToString ((Integer)valor);
         }
     	return retorno;
     }   
@@ -219,6 +222,15 @@ public class Utils {
       return (valor != null? valor.toString() : "");
 	}
 
+	/**
+	 * FGC.  Convierte integerToString
+	 * @param valor
+	 * @return
+	 */
+    public static String integerToString (Integer valor){
+      return (valor != null? valor.toString() : null);
+	}    
+    	
 	/**
 	 * FGC.  Convierte bigDecimalToString
 	 * @param valor
