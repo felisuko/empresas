@@ -191,6 +191,33 @@ public class Utils {
         }
     	return retorno;
     }   
+	
+    /**
+     * FGC. Devuelve valor Long
+     * 
+     * @return
+     */	
+    public static Long obtenerLong(Object o) {
+        Long retorno = null;
+	try {
+	    if (o != null) {
+	        if (o instanceof BigDecimal) {
+	            retorno = Long.valueOf(((BigDecimal)o).toString());
+                }else if (o instanceof Long) {
+	            retorno = (Long)o;
+                }else if (o instanceof Integer) {
+	            retorno = ((Integer)o).longValue();
+	        }else {
+	            retorno = Long.valueOf(o.toString().trim());
+	        }
+            }
+        }
+        catch (NumberFormatException e) {
+	    retorno = null;
+	}
+        return retorno;
+    }
+	
     
     /**
      * FGC. Devuelve valor String, si el dato es nulo devuelve el valor por defecto pasado. 
