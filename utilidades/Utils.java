@@ -322,5 +322,23 @@ public class Utils {
         return (!isNullOrEmpty(str));
     }
     
+    /**
+     * FGC.  Reemplaza salto de linea por cadena '\n'
+     * @param valor
+     * @return
+     */ 
+    public static String eliminarSaltoLinea(String valor) {
+	return eliminarSaltoLinea(valor, "\\\\n"); 
+    }    
+    
+    /**
+     * FGC.  Reemplaza salto de linea por la cadena recibida por parametro
+     * @param valor
+     * @param valorReemplazo
+     * @return
+     */
+    public static String eliminarSaltoLinea(String valor, String valorReemplazo) {
+    	return getValue(valor).replaceAll("\n", valorReemplazo);
+    }    	
 
 }
