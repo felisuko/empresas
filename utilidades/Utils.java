@@ -341,4 +341,24 @@ public class Utils {
     	return getValue(valor).replaceAll("\n", valorReemplazo);
     }    	
 
+    /**
+     * Reemplaza barra invertida por barra normal
+     *
+     * @param prueba
+     * @return
+     */
+    public static String reemplazaSlash_x_Backslash (String valor){
+    	return getValue(valor).replaceAll("\\\\","/");
+    }
+    
+    /**
+     * 
+     * @param valor
+     * @return
+     */
+    public static String escaparBarraInvertida (String valor){
+    	return  getValue(valor).replaceAll("\\\\","\\\\\\\\");
+    }
+    
+	
 }
