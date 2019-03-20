@@ -1,0 +1,9 @@
+SANITAS (septiembre 2018 - 
+
+- repositorio subsersion, clientes subversion eclikse, y tortoiseSvn
+- Aplicaciones frontal.Desarrolladas en ICEfaces JSF framework, ejbs, acecsos a BD Oracle
+- PlSqlDeveloper
+- Servicios rest (capas services-rest-client, services-rest, service-api, services-impl, persistence )
+- servidores weblogic para despliegue aplicaciones frontal, y jboss para despliegue de servicios Rest
+- API Manager, para validaciones de servicis rest
+- 
