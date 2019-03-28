@@ -282,17 +282,8 @@ public class Utils {
 	 * @param valor
 	 * @return
 	 */    
-    public static boolean isCampoRelleno(Object value)
-    {
-    	boolean campoRelleno = false;
-    	
-    	if (value instanceof String){
-    		campoRelleno = (value != null && !"".equals(((String)value).trim()));
-    	}else{
-    		campoRelleno = (value != null);
-    	}
-    
-      return campoRelleno;
+    public static boolean isCampoRelleno(Object value){
+	return  (value instanceof String? (value != null && !"".equals(((String)value).trim())) : (value != null));
     }
 
 	/**
