@@ -10,8 +10,8 @@ import java.util.List;
 
 public class Utils {
 
-	
-	private final static String FORMATO_DDMMYYYY = "dd/mm/yyyy";
+    private final static String FORMATO_IMPORTE = "###,###.##";
+    private final static String FORMATO_DDMMYYYY = "dd/mm/yyyy";
 	
     /**
      * FGC. Transforma String to TimeStamp. Sin formato 
@@ -350,6 +350,28 @@ public class Utils {
     public static String escaparBarraInvertida (String valor){
     	return  getValue(valor).replaceAll("\\\\","\\\\\\\\");
     }
-    
+
+	/**
+	 * 
+	 * @param valor
+	 * @return
+	 */
+    public static String formatImporte (String valor){
+		return formatImporte (valor, FORMATO_IMPORTE);
+    }
+	
+	/**
+	 * 
+	 * @param valor
+	 * @param strFormatoImporte
+	 * @return
+	 */
+    public static String formatImporte (String valor, String strFormatoImporte){
+    	DecimalFormat formateador = new DecimalFormat("###,###.##");
+    	Double dValor = stringToDouble(valor, 0D);
+    	return  formateador.format(dValor);
+    }
+
+
 	
 }
