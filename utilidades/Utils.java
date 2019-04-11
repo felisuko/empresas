@@ -373,5 +373,14 @@ public class Utils {
     }
 
 
+    /**
+    * Devuleve el simbolo del euro. Se realiza este juego para no tener problema con los Encodig
+    * @return
+    */
+    private String getMonedaEuro (){
+	// "80", simbolo del euro en Hexadecimal. transforma el codigo hexadecial a decimal
+        return (""+((char)Integer.parseInt("80",16)));
+    }
+	
 	
 }
