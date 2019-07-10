@@ -30,4 +30,34 @@ public class UtilDate {
         return (new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date()));
     }
 	
+	/**
+	 *  FUNCIONES CADENAS TIEMPO
+	 */
+    private static String horaActual() {
+        return (new SimpleDateFormat("HH:mm:ss:SSSS", Locale.getDefault()).format(new Date()));
+    }
+
+	/**
+	 *  FUNCIONES CADENAS TIEMPO
+	 */
+    private static String horaActual() {
+        return (new SimpleDateFormat("HH:mm:ss:SSSS", Locale.getDefault()).format(new Date()));
+    }
+
+    /*
+     * ESTADISTICAS TIEMPO
+     */
+    public static void estadisticasTiempo (Date dInicio, Date dFin){
+        double Duracion=(int) ((dFin.getTime()-dInicio.getTime())); // milisegundos
+        double second		=  (Duracion/1000);
+        double segundos		=  ((Duracion/1000)*100);
+        double minutos 		=  ((Duracion/1000/60)*100);	//	100 paginas
+        double horas		=  ((Duracion/1000/60)*100)/60; // 	100 paginas
+
+        System.out.println("Time in miliseg (  1 pag): " + Duracion + " miliSegundos.");         		
+        System.out.println("Time in seconds (  1 pag): " + second + " seconds.");
+        System.out.println("Time in seconds	(100 pag): " + segundos + " seconds.");         
+        System.out.println("Time in minutes (100 pag): " + minutos + " minutes.");
+        System.out.println("Time in Hours   (100 pag): " + horas + " Hours.");
+    }	
 }
