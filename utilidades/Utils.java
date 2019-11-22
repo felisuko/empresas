@@ -382,5 +382,39 @@ public class Utils {
         return (""+((char)Integer.parseInt("80",16)));
     }
 	
+    /**
+    * Limpia texto, eliminando caracteres que no sean ni numeros ni letras
+    * @param entreada
+    * @return
+    */	
+    private static String limpiarTexto (String entreada){
+        return (entreada.replaceAll("[^a-zA-Z0-9]", "")); 
+    }
+
+    /**
+     * FGC.  Convierte stringToDouble
+     * @param valor
+     * @return
+     */
+     public static Double stringToDouble (String valor){
+      	  Double dValor = null;
+      	  if (isNoneEmpty((String) valor)) {
+      		  try{ dValor = Double.parseDouble(valor.trim());
+      		  }catch (Exception e){
+      			dValor = null;
+      		  }
+      	  }
+      	  return dValor;
+     }
+
+  	/**
+  	 * FGC.  Convierte doubleToString
+  	 * @param valor
+  	 * @return
+  	 */
+      public static String doubleToString (Double valor){
+        return (valor != null? Double.toString(valor) : "");
+  	}
+      
 	
 }
