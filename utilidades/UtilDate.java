@@ -60,4 +60,28 @@ public class UtilDate {
         System.out.println("Time in minutes (100 pag): " + minutos + " minutes.");
         System.out.println("Time in Hours   (100 pag): " + horas + " Hours.");
     }	
+	
+    /**
+     * Fecha a futuro. Nov-2019
+     * 
+     * @param sfecha
+     * @param formato
+     * @return
+     */	
+    private static boolean esFechaFuturo(String sfecha, String formato) {
+    	boolean resultado=false;
+    	try {
+    		/**Obtenemos las fechas enviadas en el formato a comparar*/
+    		SimpleDateFormat formateador = new SimpleDateFormat(isNullOrEmpty(formato)? "dd/MM/yyyy" : formato); 
+    		Date dFecha		 = formateador.parse(sfecha);
+    		Date fechaActual = new Date();
+    	
+    		resultado = (dFecha.after(fechaActual));
+    	
+    	} catch (ParseException e) {
+    		System.out.println("Se Produjo un Error!!!  "+e.getMessage());
+    	}
+    	
+    	return resultado;
+    }    	
 }
