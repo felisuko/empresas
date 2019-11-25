@@ -68,7 +68,7 @@ public class UtilDate {
      * @param formato
      * @return
      */	
-    private static boolean esFechaFuturo(String sfecha, String formato) {
+    private static boolean esFechaHoraFuturo(String sfecha, String formato) {
     	boolean resultado=false;
     	try {
     		/**Obtenemos las fechas enviadas en el formato a comparar*/
@@ -84,4 +84,37 @@ public class UtilDate {
     	
     	return resultado;
     }    	
+	
+    /**
+    * Eliminar hora de objeto Date 
+    * @param date
+    * @return
+    */
+    public static Date removeTime(Date date) {
+      	Calendar cal = Calendar.getInstance();
+      	cal.setTime(date);
+      	cal.set(Calendar.HOUR_OF_DAY, 0);
+      	cal.set(Calendar.MINUTE, 0);
+      	cal.set(Calendar.SECOND, 0);
+      	cal.set(Calendar.MILLISECOND, 0);
+      	return cal.getTime();
+    }      
+
+    /**
+    * fecha a futuro (sin hora)
+    * @param dFecha
+    * @return
+    */
+    private static boolean esFechaFuturo(Date dFecha) {
+      	boolean resultado=false;
+      	try {
+      		Date fechaActual = removeTime(new Date());
+      		dFecha = removeTime(dFecha);
+      		resultado = (dFecha.after(fechaActual));
+      	} catch (Exception e) {
+      		System.out.println("Se Produjo un Error!!!  "+e.getMessage());
+      	}
+      	
+      	return resultado;
+    }        
 }
