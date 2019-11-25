@@ -407,14 +407,54 @@ public class Utils {
       	  return dValor;
      }
 
-  	/**
-  	 * FGC.  Convierte doubleToString
-  	 * @param valor
-  	 * @return
-  	 */
-      public static String doubleToString (Double valor){
+    /**
+    * FGC.  Convierte doubleToString
+    * @param valor
+    * @return
+    */
+    public static String doubleToString (Double valor){
         return (valor != null? Double.toString(valor) : "");
-  	}
+    }
       
+    /**
+     *  Los NIE's de extranjeros residentes en España tienen una letra (X, Y, Z), 7 números y dígito de control.
+     *  Para el cálculo del dígito de control se sustituye:
+     *  X -> 0	
+     *  Y -> 1
+     *  Z -> 2
+     *  y se aplica el mismo algoritmo que para el NIF.
+     */
+    private static boolean isValidNIE (String nie){
+        String posicionUno="";
+        if (nie.toUpperCase().startsWith("X") || nie.toUpperCase().startsWith("Y") || nie.toUpperCase().startsWith("Z")){
+            posicionUno = (nie.toUpperCase().startsWith("X")? "0":nie.toUpperCase().startsWith("Y")? "1" : "2");
+        }
+        nie = posicionUno+nie.substring(1);
+
+    	return (isValidDNI (nie));
+    }
+	
+    /**
+     * Validar DNI nov-2019
+     * 
+     * @param dni
+     * @return
+     */
+    private static boolean isValidDNI(String dni) {
+	boolean result = false;
+	final Pattern pattern = Pattern.compile("(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
+	final Matcher matcher = pattern.matcher(dni);
+
+	if (matcher.matches()) {
+		final String letra = matcher.group(2);
+		final String letters = "TRWAGMYFPDXBNJZSQVHLCKE";
+		int index = Integer.parseInt(matcher.group(1));
+		index = index % PRIME_23;
+		final String reference = letters.substring(index, index + 1);
+		result = (reference.equalsIgnoreCase(letra)); 
+	} 
+	return result;
+    }
+
 	
 }
