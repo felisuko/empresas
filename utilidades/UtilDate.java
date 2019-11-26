@@ -117,4 +117,25 @@ public class UtilDate {
       	
       	return resultado;
     }        
+	
+      /**
+       * 
+       * @param sFecha
+       * @param formato
+       * @return
+       */
+      public static Date stringToDate (String sFecha, String formato){
+    	  
+    	  SimpleDateFormat sdf = new SimpleDateFormat ("".equals(formato)? "dd/mm/yyyy" : formato);
+    	  Date fecha = new Date();
+    	  try{
+    		  fecha = sdf.parse(sFecha);  
+    	  }catch(Exception e){
+    		  System.out.println("stringToDate " + e);
+    	  }
+    	  
+    	  return fecha; 
+      }
+	
+	
 }
