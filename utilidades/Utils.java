@@ -530,5 +530,31 @@ public class Utils {
 	return result;
     }
 
-	
+
+    /**
+     * FGC. Devuelve valor long, valida el tipo de dato de entrada, String, Long, BigDecimal
+     * @param valor
+     * @return
+     */
+    public static Double getValueDouble (Object valor){
+    	Double retorno = null; 
+        if (valor instanceof Double){
+        	retorno  = (Double) valor;
+        }else
+    	if (valor instanceof String){
+    		retorno  = stringToDouble((String)valor);
+    	} 
+
+    	return retorno;
+    }  
+    
+    /**
+     * FGC. Devuelve valor Double. Si es nulo su valor, devuelve el valor por defecto 
+     * @param valor
+     * @return
+     */
+    public static Double getValueDouble (Object valor, Double valorDefecto){
+    	Double lRespuesta = getValueDouble (valor);
+    	return (lRespuesta==null? valorDefecto : lRespuesta);
+    }	
 }
