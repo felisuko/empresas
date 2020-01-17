@@ -193,6 +193,77 @@ public class Utils {
     }   
 	
     /**
+     * FGC. Devuelve valor Long. Si es nulo su valor, devuelve el valor por defecto 
+     * @param valor
+     * @return
+     */
+    public static Long getValueLong (Object valor, Long valorDefecto){
+    	Long lRespuesta = getValueLong (valor);
+    	return (lRespuesta==null? valorDefecto : lRespuesta);
+    }
+	
+    /**
+     * FGC. Devuelve valor String, valida el tipo de dato de entrada, String, Long, BigDecimal
+     * @param valor
+     * @return
+     */
+    public static Long getValueLong (Object valor){
+    	Long retorno = 0L; 
+    	if (valor instanceof String){
+    		retorno  = stringToLong((String)valor);
+    	}else
+    	if (valor instanceof Long){
+    		retorno  = (valor != null? (Long)valor : 0L);
+    	}else
+        if (valor instanceof BigDecimal){
+        	retorno  = bigDecimalToLong ((BigDecimal)valor);
+    	}else
+        if (valor instanceof Integer){
+        	retorno  = integerToLong ((Integer)valor);
+        }
+    	return retorno;
+    }  
+ 
+    /**
+     * @param valor
+     * @return
+     */
+    public static Long stringToLong (String valor){
+    	Long lValor = null;
+    	if (isNoneEmpty((String) valor)) {
+    		try{ 					lValor = Long.parseLong(valor.trim()); }
+    		catch (Exception e){	lValor = null; }
+    	}
+    	return lValor;
+    }
+    
+    /**
+     * @param valor
+     * @return
+     */
+    public static Long bigDecimalToLong (BigDecimal valor){
+    	Long lValor = null;
+    	if (valor!=null) {
+    		try{ 					lValor = valor.longValue() ; }
+    		catch (Exception e){	lValor = null; }
+    	}
+    	return lValor;
+    }    
+    
+    /**
+     * @param valor
+     * @return
+     */
+    public static Long integerToLong (Integer valor){
+    	Long lValor = null;
+    	if (valor!=null) {
+    		try{ 					lValor = valor.longValue()  ; }
+    		catch (Exception e){	lValor = null; }
+    	}
+    	return lValor;
+    }      
+	
+    /**
      * FGC. Devuelve valor Long
      * 
      * @return
