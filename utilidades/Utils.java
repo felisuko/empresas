@@ -188,6 +188,9 @@ public class Utils {
     	}else
         if (valor instanceof Integer){
         	retorno  = integerToString ((Integer)valor);
+    	}else
+        if (valor instanceof Double){
+        	retorno  = doubleToString ((Double)valor);
         }
     	return retorno;
     }   
