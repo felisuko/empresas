@@ -137,5 +137,26 @@ public class UtilDate {
     	  return fecha; 
       }
 	
+	/**
+	 * devuelve negativo si la fecha anterior es posterior a fecha actual
+	 */
+	private static int diferenciaDiasFechas (Date fechaActual, Date fechaAnterior){
+		int dias=0;
+		if (fechaActual !=null && fechaAnterior!=null){
+			dias=(int) ((fechaActual.getTime()-fechaAnterior.getTime())/86400000);	
+		}
+	    return dias;
+	}
+	
+	private static Date stringToDate (String sFecha, String formato){
+		Date fecha = new Date();
+		try{
+			SimpleDateFormat dateformat3 = new SimpleDateFormat(formato) ;// "dd/MM/yyyy");
+			fecha  = dateformat3.parse(sFecha);
+		}catch(Exception e){ }
+		return fecha;
+	}
+	
+	
 	
 }
