@@ -1,9 +1,51 @@
-SANITAS (septiembre 2018 - 
+SANITAS (septiembre 2018 - actualidad )
+======================================
 
-- repositorio subsersion, clientes subversion eclikse, y tortoiseSvn
+- repositorio subsersion, clientes subversion eclipse, y tortoiseSvn
 - Aplicaciones frontal.Desarrolladas en ICEfaces JSF framework, ejbs, acecsos a BD Oracle
 - PlSqlDeveloper
-- Servicios rest (capas services-rest-client, services-rest, service-api, services-impl, persistence )
-- servidores weblogic para despliegue aplicaciones frontal, y jboss para despliegue de servicios Rest
+- Servicios REST (capas services-rest-client, services-rest, service-api, services-impl, persistence )
+- JBOSS para despliegue de servicios Rest
+- Servicios SOAP
+- WEBLOGIC para despliegue aplicaciones frontal, y WebServices SOAP
 - API Manager, para validaciones de servicis rest
 - 
+
+INVERSIS (enero 2014 - agosto 2018)
+======================================
+
+Herramientas
+•	ibuilder (maven, hibernate, java 1.7)
+• Mantis.	Gestion incidencias. Gestion de horas.
+•	OSB / Java 1.7, Oracle, hibernate, Shell Script. 
+• Spring Batch
+• repositorio subsersion, clientes subversion eclipse, y tortoiseSvn
+• Maven
+• Jenkins 
+• front-Ent: jsp contraloroes java. spring .... REDACTAR
+
+2014 - SIAM - Segmentacion de negocio minoritario 
+ (Separacion AndBank / Inversis)
+ Analisis y desarrollo aplicaciones frontal 
+
+2015 
+•	mantenimiento portal web.  awt???
+
+2016
+•	Integra EVO - fondo inteligente
+•	Intregra Maphre
+•	Generacion ficheros Apache FOP (Formatting Objects Processor) aplicación Java que convierte archivos XSL Formatting Objects a PDF
+
+2017 - Integra RBC   (Integracion RBC Royal Back of Canada) 
+•	INTEGRARBC-INTERFACES
+•	Análisis y desarrollo se servicios de carga masiva. Recepción y envió de ficheros. 
+•	OGVF Gestionar todo el tratamiento de un fichero que contiene órdenes de hechos relevantes voluntarios (fichero ORDENGFV). Este fichero ofrece la posibilidad a las entidades de introducir las órdenes de sus clientes para acudir a las gestiones financieras voluntarias de mercado nacional e internacional.Alternativa a la mensajeria Swift 565. Fichero de entrada
+•	Fichero de Instrucciones de Liquidación (FIL), Fichero para operaciones a liquidar en mercado nacional e internacional. Fichero de entrada
+•	InformeCashFlow. Fichero de salida. Generación fichero excel con librería Apache POI. 
+•	Fichero derivados,proceso que se encarga de generar el fichero de liquidación de productos de derivados nacionales e internacionales.Fichero de salida
+•	IIC007, proceso que se encarga de procesar el fichero IIC007 que carga los cambios de comercializador de fondos. En este caso de uso, se indica sólo el proceso específico de lectura del fichero IIC007, una vez que se ha recibido el fichero en la ruta correspondiente y se ha guardado en el sistema. El nombre de este fichero comenzará por IIC007 para así identificar que el fichero corresponde al proceso de carga de cambios de comercializador de fondos.Fichero de entrada
+
+2018 - Mantenimiento, y estudio de impacto de incidencia y soluciones para procesos Spring batch 
+•	Pruebas integradas, solución incidencias tecnica, en Interfaz MAEC (alta masiva de cuentas y clientes en el sistema), Interfaces de fiscalidad, Interaz de anuncios de nuevos eventos financiaros, interfaz fichero comisiones
+•	Generacion de informes Pdfs, con PdfConverter de iText
+
