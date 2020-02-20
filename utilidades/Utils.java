@@ -557,4 +557,102 @@ public class Utils {
     	Double lRespuesta = getValueDouble (valor);
     	return (lRespuesta==null? valorDefecto : lRespuesta);
     }	
+	
+   /************************************************************************************************************************************
+    **************************************************** INICIO INTEGER ***************************************************************
+    ***********************************************************************************************************************************/
+   
+      /**
+       * FGC. Devuelve valor Long. Si es nulo su valor, devuelve el valor por defecto 
+       * @param valor
+       * @return
+       */
+      public static Integer getValueInteger (Object valor, Integer valorDefecto){
+    	  Integer lRespuesta = getValueInteger (valor);
+      	return (lRespuesta==null? valorDefecto : lRespuesta);
+      }
+      
+      /**
+       * FGC. Devuelve valor Integer, valida el tipo de dato de entrada, String, Long, BigDecimal
+       * @param valor
+       * @return
+       */      
+      public static Integer getValueInteger (Object valor){
+    	  Integer retorno = null;
+        	
+    	  if (valor instanceof String){
+        		retorno  = stringToInteger((String)valor);
+    	  }else if (valor instanceof Long){
+        		retorno  = longToInteger ((Long)valor);
+    	  }else if (valor instanceof BigDecimal){
+            	retorno  = bigDecimalToInteger ((BigDecimal)valor);
+    	  }else if (valor instanceof Integer){
+          		retorno  = (valor != null? (Integer)valor : null);
+    	  }else if (valor instanceof Double){
+             	retorno  = doubleToInteger((Double)valor);
+          }
+    	  return retorno;
+      }        
+
+      /**
+       * 
+       * @param valor
+       * @return
+       */
+      public static Integer stringToInteger (String valor){
+    	  Integer iValor = null;
+       	  if (isNoneEmpty((String) valor)) {
+       		  try{ iValor = Integer.parseInt(valor.trim());
+       		  }catch (Exception e){ iValor = null;}
+       	  }
+       	  return iValor;
+      }
+
+      /**
+       * 
+       * @param valor
+       * @return
+       */
+      public static Integer longToInteger (Long lValor){
+    	  Integer iValor = null;
+       	  if (lValor!=null) {
+       		  try{ iValor = lValor.intValue();
+       		  }catch (Exception e){iValor = null;}
+       	  }
+       	  return iValor;
+      }      
+      
+      /**
+       * 
+       * @param valor
+       * @return
+       */
+      public static Integer doubleToInteger (Double dValor){
+    	  Integer iValor = null;
+       	  if (dValor!=null) {
+       		  try{ iValor = dValor.intValue();
+       		  }catch (Exception e){ iValor = null;}
+       	  }
+       	  return iValor;
+      }   
+      
+      /**
+       * 
+       * @param valor
+       * @return
+       */
+      public static Integer bigDecimalToInteger (BigDecimal bValor){
+    	  Integer iValor = null;
+       	  if (bValor!=null) {
+       		  try{ iValor = bValor.intValue();
+       		  }catch (Exception e){ iValor = null;}
+       	  }
+       	  return iValor;
+      }           
+   
+   /************************************************************************************************************************************
+    **************************************************** FIN INTEGER ******************************************************************
+    ***********************************************************************************************************************************/
+   
+	
 }
