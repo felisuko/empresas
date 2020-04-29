@@ -24,6 +24,19 @@ public class UtilDate {
 
     	return (Calendar.WEDNESDAY == cal.get(Calendar.DAY_OF_WEEK));
     }
+	
+	
+    public static boolean esDiaSemana(Timestamp ts, int diaBuscado) {
+        Boolean encontrado = Boolean.FALSE;
+        Calendar cld = Calendar.getInstance();
+        cld.setTime(ts);
+
+        if (diaBuscado == cld.get(Calendar.DAY_OF_WEEK)) {
+            encontrado = Boolean.TRUE;
+        }
+
+        return encontrado;
+    }
     
 	/**
 	 *  FUNCIONES CADENAS TIEMPO
