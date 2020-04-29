@@ -201,5 +201,12 @@ public class UtilDate {
       	return cal.getTime();
     }      
 
+     public static boolean esFechaMayor (Timestamp fMayor, Timestamp fMenor) {
+    	return  ( fMayor!=null && fMenor==null? true  : 
+    			  fMayor==null && fMenor!=null? false :
+    			  fMayor==null && fMenor==null? false : 
+    			  ((Double.valueOf(fMayor.getTime() - fMenor.getTime()))>0));
+    }    
+
 	
 }
