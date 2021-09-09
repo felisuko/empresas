@@ -159,6 +159,33 @@ public class UtilStr {
         return lstArrayString;
     }    
 	
+
+    /**
+     * Elimina cadenas repetidas en una lista<String>
+     */
+    public static List<String> lstEliminarDuplicados(List<String> lista){
+    	List<String> listCombined = new ArrayList<>();
+
+    	if (isLstNoneEmpty(lista)){
+    		Set<String> setCombined = new HashSet<>(lista);
+    		listCombined			= new ArrayList<>(setCombined);
+    	}
+    	return listCombined;
+    }    
+
+    /**
+     * Elimina cadenas repetidas en una lista<Long>
+     */
+    public static List<Long> lstEliminarDuplicadosLong(List<Long> lista){
+    	List<Long> listCombined = new ArrayList<>();
+
+    	if (isLstNoneEmpty(lista)){
+    		Set<Long> setCombined = new TreeSet<>(lista);	// TreeSet elimina elementos repetidos y ordena 
+    		listCombined		  = new ArrayList<>(setCombined);
+    	}
+    	return listCombined;
+    }    	
+	
 	/*************************************************************************************************************************************************************************
 	 * TO STRING
 	 * ***********************************************************************************************************************************************************************
