@@ -1,0 +1,36 @@
+DROP SEQUENCE  JBRAVO.SQ_GERI_RESPUESTAS_ACCIONES ;
+CREATE SEQUENCE JBRAVO.SQ_GERI_RESPUESTAS_ACCIONES  MINVALUE 1 MAXVALUE 9999999999 INCREMENT BY 1 START WITH 1 CACHE 20 ORDER  NOCYCLE ; 
+
+--------------------------------------------------------------------------------
+-- RECORRE SECUENCIA INCREMENTANDOLA
+--------------------------------------------------------------------------------
+declare
+cont number;
+begin
+  for i in 1..1000 loop
+    cont:=JBRAVO.SQ_CLIE_SECUENCIAS_BRABU.NEXTVAL;
+  end loop;
+end;
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+-- RECORRE CURSOR ACTUALIZANDO CAMPO CON SECUENCIA
+--------------------------------------------------------------------------------
+declare
+  CURSOR c4 IS
+  SELECT ID_TIPO_RESPUESTA, ID_TIPO_ACCION, GEN_T_AGENDA_ACC, GEN_C_AGENDA_ACC
+  FROM JBRAVO.GERI_RESPUESTAS_ACCIONES;
+  v_cont number;  
+  
+begin
+
+    FOR registro IN c4 LOOP
+        select JBRAVO.SQ_GERI_RESPUESTAS_ACCIONES.nextval INTO v_cont from dual;
+        
+        update JBRAVO.GERI_RESPUESTAS_ACCIONES
+           set id_secuencia = v_cont
+          where id_tipo_respuesta =registro.id_tipo_respuesta
+          and id_tipo_accion =registro.id_tipo_accion
+          and gen_c_agenda_acc = registro.gen_c_agenda_acc;
+  end loop;
+end;
