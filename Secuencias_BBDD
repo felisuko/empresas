@@ -34,3 +34,9 @@ begin
           and gen_c_agenda_acc = registro.gen_c_agenda_acc;
   end loop;
 end;
+
+--------------------------------------------------------------------------------
+-- CAMBIA EL INCREMENTO DE LA SENCUENCIA
+--------------------------------------------------------------------------------
+alter sequence JBRAVO.SQ_GERI_RESPUESTAS_ACCIONES increment by 1; -- SUMA  1 CADA SECUENCIA
+alter sequence JBRAVO.SQ_GERI_RESPUESTAS_ACCIONES increment by -1;-- RESTA 1 CADA SECUENCIA
